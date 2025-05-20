@@ -7,21 +7,21 @@ int main(void)
 	int data1, data2, data3, data4, data5, sum;
 	
 	{	
-		printf("���̃\�t�g�E�F�A�͕��ϒl���v�Z����\�t�g�E�F�A�ł��B\n");/* �\�t�g�ē� */
+		printf("このソフトウェアは平均値を計算するソフトウェアです。\n");/* ソフト案内 */
 
-		/* �����J��Ԃ� */
+		/* 無限繰り返し */
 		for (;;) {
 
 			do {
 
-				printf("5�̐������R���}�ŋ�؂��ď��Ԃɓ��͂��Ă��������B\n(�X�y�[�X�ŋ�؂�����A�T�̐��l���Ԉ���ē��͂���ƕs����o�܂�. 0 �`2147483647 �͈̔͂œ��͂��Ă�������.�����́u��΂Ɂv���͂��Ȃ��ł��������B)", INT_MAX);/* ���ē����� */
-				scanf("%d , %d , %d , %d , %d", &data1, &data2, &data3, &data4, &data5); /* ���͕��� */
+				printf("5つの数字をコンマで区切って順番に入力してください。\n(スペースで区切ったり、５つの数値を間違って入力すると不具合が出ます。 大きすぎる値や、小数は入力しないでください。");/* 第一案内部分 */
+				scanf("%d , %d , %d , %d , %d", &data1, &data2, &data3, &data4, &data5); /* 入力部分 */
 
-			} while ((data1 < 0) || (data2 < 0) || (data3 < 0) || (data4 < 0) || (data5 < 0));/* ��������(���ׂ�0�ȏ�) */
+			} while ((data1 < 0) || (data2 < 0) || (data3 < 0) || (data4 < 0) || (data5 < 0));/* 数字条件(すべて0以上) */
 
-			sum = (data1 + data2 + data3 + data4 + data5) / 5;/* �v�Z���� */
+			sum = (data1 + data2 + data3 + data4 + data5) / 5;/* 計算部分 */
 			
-			printf("���ϒl�� %d �ł��B\n", sum);/* �v�Z���ʕ\������ */
+			printf("平均値は %d です。\n", sum);/* 計算結果表示部分 */
 			printf("\n");
 		}
 		return 0;
