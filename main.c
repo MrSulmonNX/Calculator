@@ -1,29 +1,60 @@
-#define _CRT_SECURE_NO_WARNINGS   /*Visual Studioのみ*/
 #include <stdio.h>
-#include <limits.h>
+#include <stdlib.h>
+#pragma warning(disable: 4996)
 
-int main(void)
-{
-	int data1, data2, data3, data4, data5, sum;
-	
-	{	
-		printf("このソフトウェアは平均値を計算するソフトウェアです。\n");/* ソフト案内 */
+int main() {
 
-		/* 無限繰り返し */
-		for (;;) {
+    printf("Calculator made by @MrSulomonNX\n");
 
-			do {
+    for (;;) {
 
-				printf("5つの数字をコンマで区切って順番に入力してください。\n(スペースで区切ったり、５つの数値を間違って入力すると不具合が出ます。 大きすぎる値や、小数は入力しないでください。");/* 第一案内部分 */
-				scanf("%d , %d , %d , %d , %d", &data1, &data2, &data3, &data4, &data5); /* 入力部分 */
 
-			} while ((data1 < 0) || (data2 < 0) || (data3 < 0) || (data4 < 0) || (data5 < 0));/* 数字条件(すべて0以上) */
 
-			sum = (data1 + data2 + data3 + data4 + data5) / 5;/* 計算部分 */
-			
-			printf("平均値は %d です。\n", sum);/* 計算結果表示部分 */
-			printf("\n");
-		}
-		return 0;
-	}
+        double num1, num2, result;
+        char operator;
+
+        printf("Please enter a formula (example: 1 + 2): ");
+
+        if (scanf("%lf %c %lf", &num1, &operator, &num2) != 3) {
+            printf("Input format is incorrect.\n");
+            printf("\n");
+            return 1;
+        }
+
+        switch (operator) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            if (num2 != 0) {
+                result = num1 / num2;
+            }
+            else {
+                printf("Cannot be divided by zero...\n");
+                printf("\n");
+                return 1;
+            }
+            break;
+        default:
+            printf("Invalid operator.\n");
+            printf("\n");
+            return 1;
+        }
+        printf("\n");
+        printf("Result: %.2lf %c %.2lf = %.2lf\n", num1, operator, num2, result);
+        printf("\n");
+        printf("Thank you for using this software.\n");
+        printf("\n");
+        printf("Press Ctrl + C to exit...\n");
+        printf("\n");
+        printf("\n");
+    };
+
+    return 0;
 }
